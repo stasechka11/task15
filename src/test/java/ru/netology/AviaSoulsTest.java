@@ -140,4 +140,19 @@ class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+   /* @Test
+    public void shouldCompareWhenFlightTimeLess() {
+        AviaSouls aviaSouls = new AviaSouls();
+
+        Ticket ticket1 = new Ticket("Минск", "Москва", 8_282, 17, 18);
+        Ticket ticket2 = new Ticket("Новый Уренгой", "Уфа", 40_262, 22, 5);
+
+        TicketTimeComparator ticketTimeComparator = new TicketTimeComparator();
+
+        int expected = -1;
+        int actual = ticket1.compareTo(ticket2);
+
+        Assertions.assertEquals(expected, actual);
+    }*/
+
 }
