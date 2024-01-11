@@ -10,10 +10,9 @@ class AviaSoulsTest {
         Ticket ticket1 = new Ticket("Москва", "Пермь", 10_000, 3, 2);
         Ticket ticket2 = new Ticket("Екатеринбург", "Сочи", 5_000, 6, 1);
 
-        int expected = 1;
         int actual = ticket1.compareTo(ticket2);
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual > 0);
     }
 
     @Test
@@ -21,10 +20,9 @@ class AviaSoulsTest {
         Ticket ticket1 = new Ticket("Минск", "Москва", 17_000, 8, 1);
         Ticket ticket2 = new Ticket("Москва", "Милан", 60_000, 16, 15);
 
-        int expected = -1;
         int actual = ticket1.compareTo(ticket2);
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual < 0);
     }
 
     @Test
@@ -158,20 +156,48 @@ class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-   /* @Test
-    public void shouldCompareWhenFlightTimeLess() {
+    @Test
+    public void shouldCompareByTimeComparatorTicket1FlightTimeLess() {
         AviaSouls aviaSouls = new AviaSouls();
 
         Ticket ticket1 = new Ticket("Минск", "Москва", 8_282, 17, 18);
-        Ticket ticket2 = new Ticket("Новый Уренгой", "Уфа", 40_262, 22, 5);
+        Ticket ticket2 = new Ticket("Новый Уренгой", "Уфа", 40_262, 20, 23);
 
         TicketTimeComparator ticketTimeComparator = new TicketTimeComparator();
 
-        int expected = -1;
-        int actual = ticket1.compareTo(ticket2);
+        int actual = ticketTimeComparator.compare(ticket1, ticket2);
+
+        Assertions.assertTrue(actual < 0);
+    }
+
+    @Test
+    public void shouldCompareByTimeComparatorTicket1FlightTimeGreater() {
+        AviaSouls aviaSouls = new AviaSouls();
+
+        Ticket ticket1 = new Ticket("Минск", "Москва", 8_282, 11, 16);
+        Ticket ticket2 = new Ticket("Новый Уренгой", "Уфа", 40_262, 5, 4);
+
+        TicketTimeComparator ticketTimeComparator = new TicketTimeComparator();
+
+        int actual = ticketTimeComparator.compare(ticket1, ticket2);
+
+        Assertions.assertTrue(actual > 0);
+    }
+
+    @Test
+    public void shouldCompareByTimeComparatorFlightTimeEquals() {
+        AviaSouls aviaSouls = new AviaSouls();
+
+        Ticket ticket1 = new Ticket("Минск", "Москва", 8_282, 15, 17);
+        Ticket ticket2 = new Ticket("Новый Уренгой", "Уфа", 40_262, 11, 13);
+
+        TicketTimeComparator ticketTimeComparator = new TicketTimeComparator();
+
+        int expected = 0;
+        int actual = ticketTimeComparator.compare(ticket1, ticket2);
 
         Assertions.assertEquals(expected, actual);
-    }*/
+    }
 
     @Test
     public void shouldSortSearchResultsByTimeWithComparator() {
