@@ -5,8 +5,8 @@ import java.util.Comparator;
 public class TicketTimeComparator implements Comparator<Ticket> {
     @Override
     public int compare(Ticket t1, Ticket t2) {
-        int flightTime1 = (24 - t1.getTimeFrom()) + t1.getTimeTo();
-        int flightTime2 = (24 - t2.getTimeFrom()) + t2.getTimeTo();
+        int flightTime1 = t1.getTimeTo() - t1.getTimeFrom();
+        int flightTime2 = t2.getTimeTo() - t2.getTimeFrom();
 
         if (flightTime1 < flightTime2) {
             return -1;
